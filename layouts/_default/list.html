@@ -3,8 +3,44 @@
     <div id="wrap">
       <!-- Header -->
       {{ partial "header" . }}
+      <!-- Annoyingly, this is how you have to handle page-types for 'directories' -->
+      {{ if eq .Params.pagetype "content" }}
+
+        <section id="about">
+          <div class="container">
+            <h1>{{ .Title }}</h1>
+            <div class="panel panel-default">
+              <div class="panel-body">
+                {{ .Content }}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {{ else if eq .Params.pagetype "apps" }}
+
+        <section id="apps">
+          <div class="container">
+            <h1>{{ .Site.Data.apps.name }}</h1>
+
+            <div class="panel panel-default">
+              <div class="panel-body">
+              <h5>{{ .Content }}</h5>
+              {{ range $i, $el := .Site.Data.apps.source }}
+                <h5>
+                  <i class="{{ .icon }}"></i>&nbsp;&nbsp;
+                  <strong><a href="{{ $el.link }}">{{ $el.name }}</a></strong>&nbsp;-&nbsp;{{ $el.description }}
+                </h5>
+              {{ end }}
+              </div>
+            </div>
+          </div>
+        </section>
+
+      {{ else }}
+
       <div class="container">
-        <h3>Archive</h3>
+        <h1>Blog</h1>
           <div class="panel panel-default">
             <div class="panel-body">
             {{ range .Data.Pages.ByPublishDate }}
@@ -24,6 +60,7 @@
             </div>
           </div>
       </div>
+      {{ end }}
     </div>
     <!-- Footer -->
     {{ partial "footer" . }}

@@ -5,7 +5,9 @@
       <!-- Header -->
       {{ partial "header" . }}
       {{ if isset .Params "pagetype" }}
+
         {{ .Render .Params.pagetype }}
+
       {{ else }}
       <div class="container">
         <div class="blog-post">
@@ -46,8 +48,6 @@
               </div>
             </div>
           </div>
-          <hr>
-        {{ partial "disqus" . }}
         </div>
       </div>
       {{ end }}
