@@ -1,15 +1,15 @@
 <div class="social">
   <ul class="social-links">
-    {{ if .Site.Params.Social.Github }}
-      <li><a href="http://github.com/{{ .Site.Params.Social.Github }}"><i class="fa fa-github"></i></a></li>
-    {{ end }}
-
     {{ if .Site.Params.Social.Email }}
       <li><a href="mailto:{{ .Site.Params.Social.Email }}"><i class="fa fa-envelope"></i></a></li>
     {{ end }}
 
     {{ if .Site.Params.Social.Twitter }}
       <li><a href="http://twitter.com/{{ .Site.Params.Social.Twitter }}"><i class="fa fa-twitter"></i></a></li>
+    {{ end }}
+
+    {{ if .Site.Params.Social.Github }}
+      <li><a href="http://github.com/{{ .Site.Params.Social.Github }}"><i class="fa fa-github"></i></a></li>
     {{ end }}
 
     {{ if .Site.Params.Social.LinkedIn }}
@@ -19,5 +19,10 @@
     {{ if .Site.Params.Social.Stackoverflow }}
       <li><a href="http://stackoverflow.com/{{ .Site.Params.Social.Stackoverflow }}"><i class="fa fa-stack-overflow"></i></a></li>
     {{ end }}
+
+    {{ if .Site.Params.Social.AmazonWishList }}
+      <li><a href="{{ .Site.Params.Social.AmazonWishList }}"><i class="fa fa-amazon"></i></a></li>
+    {{ end }}
+
   </ul>
 </div>

@@ -4,8 +4,8 @@
 
       <!-- Header -->
       {{ partial "header" . }}
-      {{ if isset .Params "showpagemeta" }}
-        {{ .Render "projects" }}
+      {{ if isset .Params "pagetype" }}
+        {{ .Render .Params.pagetype }}
       {{ else }}
       <div class="container">
         <div class="blog-post">
@@ -55,6 +55,6 @@
 
     <!-- Footer -->
     {{ partial "footer" . }}
-    
+
   </body>
 </html>
