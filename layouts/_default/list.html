@@ -27,6 +27,7 @@
               <div class="panel-body">
               <h5>{{ .Content }}</h5>
               {{ range $i, $el := .Site.Data.apps.source }}
+                <hr/>
                 <h5>
                   <i class="{{ .icon }}"></i>&nbsp;&nbsp;
                   <strong><a href="{{ $el.link }}">{{ $el.name }}</a></strong>&nbsp;-&nbsp;{{ $el.description }}
